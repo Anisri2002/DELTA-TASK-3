@@ -1,1 +1,77 @@
+<html>
+    <head>
+         <style>
+            h1{
+                color:chocolate;
+                text-align: center;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+                background-color: burlywood;
+            }
 
+            h2{
+                color:blue;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-style: italic;
+            }
+
+            h3{
+                color:chocolate;
+                text-align: left;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+                background-color: burlywood;
+                font-size: 30px;
+            }
+
+            body{
+                background-color:lightgreen;
+                margin:0px;
+                padding:0px;
+            }
+
+           .navMenu{
+               float:left;
+               position: relative;                     
+               border: 2px solid red;                    
+           }
+
+           .menuItem{
+               display: inline-block;
+               height: 6vh;
+               width: 15vw;
+               font-family:Cambria;
+               font-size: 2vw;
+               line-height: 7vh;
+               font-weight: bold;
+               background-color: skyblue;
+               text-align: center;
+               border-bottom: 2px solid red; 
+           }
+
+           a{               
+               text-decoration: none;               
+           }
+
+           a:visited{
+               color: black;
+           }
+
+           .menuItem:hover{
+               background-color: yellow;
+           }
+        </style>  
+    </head>
+    <body>
+        <h1> INVITE APP </h1>
+        <h2> Welcome , <%= name %> ! </h2>
+        <div class = "navMenu">
+            <a href ="http://localhost:4000/<%= name %>/profile"><div class="menuItem" > PROFILE </div></a><br>
+            <a href ="http://localhost:4000/<%= name %>/dashboard"><div class="menuItem" > DASHBOARD </div></a><br>
+            <a href ="http://localhost:4000/<%= name %>/myInvites"> <div class="menuItem" > MY INVITES </div></a><br>
+            <a href ="http://localhost:4000/<%= name %>/create"><div class="menuItem" > CREATE </div></a><br>
+            <a href ="http://localhost:4000/<%= name %>/logout">  <div class="menuItem" >LOGOUT</div></a>
+        </div>
+        <h3 id="menuHeading"></h3>
+        
+
+    </body>    
+</html>
