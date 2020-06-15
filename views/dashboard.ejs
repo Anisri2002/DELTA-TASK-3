@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+        <style>
+            .inviteLinks{
+                position:relative;
+                left:20px;
+                font-family: monospace;
+                font-size: 20px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include('partials/navMenu.ejs') %>
+        <% if(result.length === 0){ %>
+            <p style="position: relative;left: 20px;text-transform: uppercase; font-family: cursive; ">You have no invites as of now. </p>
+        <% } else{ %>
+            <% result.forEach(function(invite){ %>
+                <% var flag = 0 %>
+                <div class="invites">
+                <% for(i=0 ; i < invite.acceptedUserNames.length ; i++){ %>
+                   <% if(invite.acceptedUserNames[i]== name){flag=1;break;} %>
+                <% } %>
+                <a class = " inviteLinks " href= "http://localhost:4000/<%= name %>/dashboard/invites?_id=<%=invite._id%>"> <%= invite.organiser + " - " + invite.title + " - " + invite.eventType + (flag===1 ? " - ACCEPTED" : "") %> </a>
+           <% }) %>
+                </div>
+        <% } %>
+       
+
+    </body> 
+    <script>
+        document.getElementById("menuHeading").innerHTML="DASHBOARD :";
+    </script>  
+    </html>     

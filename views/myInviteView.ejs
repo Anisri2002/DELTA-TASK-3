@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title><%= result.title %></title>
+        <style>
+            h1{
+                text-align: center;
+                text-transform: uppercase;
+            }     
+            span{
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-style: italic;
+            }  
+            li{
+                display:inline;
+            }     
+
+        </style>
+    </head>
+    <body>
+        <h1><%= result.title %></h1>
+       
+        <span style="color: crimson; font-style: normal;">EVENT TYPE : </span><span><%= result.eventType %></span>
+
+        <p style="color:black; text-decoration:underline; font-weight:bold;">BODY : </p>
+        <%= result.body %>
+        <br><br><br><br>
+        <p> USERS ACCEPTED YOUR REQUEST : </p>
+        <% var arr = result.acceptedUserNames %>   
+        <% if(arr.length === 0){ %>
+            <p style="text-transform: uppercase; color: red; position: relative; left:20px;"> No one has accepted your request as of now. </p>
+        <% } else{ %>
+                                   
+                <% arr.forEach(function(userName){ %>
+                    <li><%= userName %></li><br>
+                <% }) %>
+            
+            <p> Total users accepted your request : <%= arr.length %> </p>
+        <% } %>
+        
+    </body>   
+    </html>     

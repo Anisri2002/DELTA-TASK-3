@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title><%= name %></title>
+        <style>
+            .error{
+                color:red;
+                font-size: medium;   
+                letter-spacing: 1px; 
+                font-weight: bold;      
+            }
+
+            #profile{
+                position: relative;
+                display:inline-block;
+                left:20px;                
+            }
+
+            .profItem{
+                color:brown;
+                font-size: 17px;
+                
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <%- include("partials/navMenu.ejs") %>
+
+      <div id="profile">
+
+            <div class="profItem"> USER NAME :</div> <%= name %><br><br> 
+            <div class="profItem"> PHONE NUMBER :</div> <%= result.phoneNo %><br><br>  
+     
+            <p style="color: blue; font-size: 25px; text-decoration: underline;">CHANGE PASSWORD :</p>
+            <form action="/<%= name %>/profile" method="post">
+
+            <div class="profItem">*CURRENT PASSWORD :</div> 
+            <input type="password" placeholder="Enter your current password" name="oldPassword" required>
+            <% if(flg == -1){ %>
+                <br><span class="error">The password is wrong.</span>
+            <% } %>
+            <br><br><br>
+
+            <div class="profItem">*NEW PASSWORD :</div>
+            <input type="password" placeholder="Enter your new password" name="newPassword" required>
+        
+            <br><br><br>
+
+            <input type="submit" value="SUBMIT"><br>
+
+            <% if(flg==2){ %>
+                <p class="profItem"> The password has been reset successfully. </p>
+            <% } %>
+
+            </form> 
+    </div>
+             
+        
+    </body> 
+    <script>
+        document.getElementById("menuHeading").innerHTML="PROFILE :";
+    </script>    
+    </html>     

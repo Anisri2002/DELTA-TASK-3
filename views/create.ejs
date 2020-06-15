@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title> Create </title>
+        <style>
+           
+           
+            .error{
+                color:red;
+                font-size: medium;   
+                letter-spacing: 1px; 
+                font-weight: bold;      
+            }
+
+            #form{
+                display:inline-block;
+                position:relative;
+                left:40px;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <%- include("partials/navMenu.ejs") %>
+        <h1 style="text-align: left;">CREATE INVITE : </h1><br><br>
+        <div id="form">
+        <form id="createInvite" action="/<%= name %>/create" method="post">
+
+            *ORGANISER : 
+            <input type="text" placeholder="Enter your Username" value="<%= name %>" readonly disabled>
+            <input type="hidden" name="organiser" value="<%= name %>" >          
+            <br><br><br>
+
+            *EVENT TYPE : <span style="display:inline-block; width:30px;"></span>
+            PUBLIC<input id="public" type="radio" name="eventType" value="public" required>
+            <span style="display:inline-block; width:30px;"></span>
+            PRIVATE<input id="private" type="radio" name="eventType" value="private" required>          
+            <br><br><br>
+
+            *TO :
+            <input id="to" type="text" name="to" placeholder="Enter recipient" required disabled>
+            <% if(flg == -1){ %>
+                <br><span class="error">Such an username does not exist.</span>
+            <% } %>
+            <br><br><br>
+
+            *TITLE :
+            <input type="text" name="title" placeholder="Enter title of invite" required>
+            <br><br><br>
+
+            *BODY :<br><br>
+            <textarea name="body" rows="25" cols="100" placeholder="Enter the body of the invite" required></textarea> 
+            <br><br><br>
+
+            <input type="submit" value="CREATE"><br>
+
+        </form>      
+        </div>
+        
+    </body>
+    <script>
+        var pvt = document.getElementById("private");
+        var pub = document.getElementById("public");
+        pvt.addEventListener("click",function(){
+            document.getElementById("to").removeAttribute("disabled");
+        });
+        pub.addEventListener("click",function(){
+            document.getElementById('to').setAttribute("disabled","disabled");
+        });
+           
+    </script>
+    
+</html>

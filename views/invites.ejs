@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title><%= result.title %></title>
+        <style>
+            h1{
+                text-align: center;
+                text-transform: uppercase;
+            }     
+            span{
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-style: italic;
+            }       
+
+        </style>
+    </head>
+    <body>
+       <h1><%= result.title %></h1>
+       <span style="color: crimson; font-style: normal;">ORGANISER : </span><span><%= result.organiser %></span><br><br>
+       <span style="color: crimson; font-style: normal;">EVENT TYPE : </span><span><%= result.eventType %></span>
+
+       <p style="color:black; text-decoration:underline; font-weight:bold;">BODY : </p>
+        <%= result.body %>
+        <br><br><br><br>
+       <form method="post" action="?_id=<%= result._id %>">
+           Do you accept or reject the invite ?<br> 
+           Accept:
+           <input type="radio" name="inviteStats" value="accept"><br>
+           Reject:
+           <input type="radio" name="inviteStats" value="reject"><br>
+           <input type="submit">
+       </form>
+    </body>   
+    </html>     

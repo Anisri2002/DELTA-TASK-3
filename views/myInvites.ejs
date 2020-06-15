@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>My Invites</title>
+        <style>
+            .inviteLinks{
+                position:absolute;
+                left:20px;
+                font-family: monospace;
+                font-size: 15px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .invites{
+                position:relative;
+                left:15vw;
+                letter-spacing: 1px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <%- include('partials/navMenu.ejs') %>
+        <% if(result.length === 0){ %>
+            <p style="position:relative;font-family: cursive;"class="inviteLinks" >You have created no invites as of now. </p>
+        <% } else{ %>
+            <div class="invites">
+            <% result.forEach(function(invite){ %>                
+                <a class = " inviteLinks "  href= "http://localhost:4000/<%= name %>/myInvites/invites?_id=<%=invite._id%>"> <%= invite.title + " - " + invite.eventType %> </a><br><br>
+           <% }) %>
+            </div>
+        <% } %>       
+
+    </body>   
+    <script>
+        document.getElementById("menuHeading").innerHTML="MY INVITES :";
+    </script>  
+    </html>     

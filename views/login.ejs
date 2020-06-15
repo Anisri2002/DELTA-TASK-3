@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title> INVITE API </title>
+        <style>
+            body{
+                background-color: skyblue;
+            }
+            h1{
+                color:chocolate;
+                text-align: center;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+                background-color: burlywood;
+            }
+            h2{
+                color:black;
+                text-decoration: underline;
+            }
+            .error{
+                color:red;
+                font-size: medium;   
+                letter-spacing: 1px; 
+                font-weight: bold;      
+            }
+            .success{
+                color:green;
+                font-size: medium;   
+                letter-spacing: 1px; 
+                font-weight: bold;   
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>INVITE APP</h1><br><br>
+        <h2>LOGIN</h2>
+        <form id="login" action="/login" method="post">
+
+            *USERNAME : 
+            <input type="text" placeholder="Enter your Username" name="name" required>
+            <% if(flg == -1){ %>
+                <br><span class="error">The Username does not exist.</span>
+            <% } %>
+            <br><br>
+
+            *PASSWORD :
+            <input type="password" placeholder="Enter your password" name="password" required>
+            <% if(flg == 0){ %>
+                <br><span class="error">The password is wrong.</span>
+            <% } %>
+            <br><br>
+
+            <input type="submit" value="LOG IN"><br>
+
+        </form>
+
+        <br><br>
+
+        <h2>SIGN UP</h2>
+        <form id="signUp" action="/signUp" method="POST">
+
+            *USERNAME     : 
+            <input type="text" placeholder="Enter your Username" name="name" required>
+            <% if(flg == -2){ %>
+                <br><span class="error" >The entered username already exists, use a different name. </span>
+            <% } %>
+            <br><br>
+
+            *PHONE NO. :
+            <input type="number" placeholder="Enter your phone number" name="phoneNo" required><br><br>
+            
+            *PASSWORD     :
+            <input type="password" placeholder="Enter your password" name="password" required><br><br> 
+
+            <input type="submit" value="SIGN UP" >        
+
+        </form>
+
+        <% if(flg == 5){ %>
+            <br><span class="success">User created successfully !</span>
+        <% } %>
+
+    </body>
+    
+</html>
